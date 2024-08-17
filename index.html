@@ -1,103 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:wght@100..900&family=Pacifico&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./Css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./Css/all.min.css" />
+    <link rel="stylesheet" href="./Css/main.css" />
+    <link rel="icon" href="./images/bookmark.png">
+    <title>Bookmark</title>
+  </head>
+  <body>
+    <div class="main py-5">
+      <div class="container d-flex flex-column justify-content-center align-items-center">
+          <h1 >Bookmarker</h1>
+        <!--body of bookmark  -->
+        <section class="input-section w-100 py-5 my-3 d-flex flex-column justify-content-center align-items-center gap-4" >
+          <h2 class="text-center">
+            <i class="fa-solid fa-bookmark"></i> Bookmark your favorite sites
+            <i class="fa-solid fa-bookmark"></i>
+          </h2>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <div class="w-100 form-group my-3">
+            <label for="siteNameInput">
+              <i class="fa-solid fa-book-bookmark"></i>
+              Site Name
+            </label>
+            <input
+              id="siteNameInput"
+              type="text"
+              class="form-control"
+              placeholder="Website Name"
+            />
+          </div>
+          <div class=" w-100 form-group my-3">
+            <label for="siteNameUrl">
+              <i class="fa-solid fa-link"></i>
+              Site URL
+            </label>
+            <input
+            
+              id="siteUrlInput"
+              type="text"
+              class=" form-control"
+              placeholder="Website Name"
+            />
+          </div>
 
+          <button class="btn text-white px-5 ">Submit</button>
+        </section>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Alegreya&family=Alegreya+Sans&family=Bree+Serif&family=PT+Sans+Caption&family=Pacifico&family=Righteous&family=Source+Sans+3:wght@300&display=swap"
-    rel="stylesheet">
-
-
-  <!-- title icon link  -->
-  <link rel="icon" href="./images/bookmark.png" />
-  <title>Bookmark | Yahia Elkosh</title>
-  <link rel="stylesheet" href="./css/bootstrap.min.css" />
-  <link rel="stylesheet" href="./css/all.min.css" />
-  <link rel="stylesheet" href="./css/main.css" />
-</head>
-
-<body>
-
-  <div class="background d-none  " id="warning-text">
-
-  <div class="warning  bg-white p-2 position-absolute col-xl-4 col-lg-4 col-md-6 col-sm-8 mx-5  ">
-    <header class="d-flex bg- justify-content-between align-items-center position-relative">
-      <div class="icons  d-flex">
-        <span class="rounded-circle bg-danger  "> </span>
-        <span class="rounded-circle bg-warning "> </span>
-        <span class="rounded-circle bg-success "> </span>
-      </div>
-      <button class="btn align-self-end" onclick="closewarning()">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-    </header>
-    <p>Site Name or Url is not valid, Please follow the rules below :</p>
-    <ul>
-      <li>
-        <i class="fa-regular fa-circle-right"></i> Site name must contain at least 3 characters
-      </li>
-      <li>
-        <i class="fa-regular fa-circle-right"></i> Site URL must be a valid one
-      </li>
-    </ul>
-  </div>
-
-
-  </div>
-
-
-
-  <div class="container p-0 w-75 d-flex flex-column justify-content-center align-items-center   ">
-    <!-- title BookMArker -->
-
-
-    <h1 class="my-5">BookMarker</h1>
-
-    <!--  Form  -->
-    <div class="inputs w-100 py-3 mb-4 d-flex flex-column align-items-center">
-      <h2 class="second-title">
-        <i class="fa-solid fa-bookmark mx-3"></i>Bookmark your favorite
-        sites<i class="fa-solid fa-bookmark mx-3"></i>
-      </h2>
-
-      <div class="form-group mb-4 w-100">
-        <i class="fa-solid fa-book-bookmark mx-2"></i><label class="fw-bold" for="sName">Site Name</label>
-        <input class="form-control" type="text" id="sName" placeholder="Bookmark name" oninput="nameValidation()" />
-      </div>
-      <div class="form-group w-100">
-        <i class="fa-solid fa-link mx-1"></i>
-        <label class="fw-bold" for="sUrl">Site URL</label>
-        <input class="form-control" type="text" id="sUrl" placeholder="Website URL" oninput="urlValidation()" />
+        <!--table  -->
+        <table class="table bg-white text-center">
+          <thead>
+            <th>Index</th>
+            <th>Website Name</th>
+            <th>Visit</th>
+            <th>Delete</th>
+          </thead>
+          <tbody >
+          
+          </tbody>
+        </table>
       </div>
 
-      <button class="btn btn-submit px-5 my-4 text-white" onclick="addsite()">
-        Submit
-      </button>
+      <!--light Box Conatier  -->
+      <section
+        id="lightBoxContainer"
+        class="w-100 h-100 position-fixed top-0 d-none justify-content-center align-items-center"
+      >
+        <!-- Light Box  -->
+        <div class="row w-100 justify-content-center">
+          <div id="lightBox" class="p-4 rounded-2 bg-white col-md-6 col-lg-4">
+            <!-- Icons Section   -->
+            <div class="icons d-flex justify-content-between p-2 mb-3">
+              <div class="colored-icons d-flex justify-content-between">
+                <span class="rounded rounded-circle bg-danger"></span>
+                <span class="rounded rounded-circle bg-warning"></span>
+                <span class="rounded rounded-circle bg-success"></span>
+              </div>
+              <div class="close-icon">
+                <i id="closeIcon" class="fa-solid fa-x fs-5 p-2 accordion-body"></i>
+              </div>
+            </div>
+
+            <!-- Message body  -->
+            <h4>
+              Site Name or Url is not valid, Please follow the rules below :
+            </h4>
+
+            <!-- Warning  List  -->
+            <ul>
+              <li class="my-3">
+                <i class="text-danger fs-5 fa-regular fa-circle-right"></i> Site
+                name must contain at least 3 characters
+              </li>
+              <li>
+                <i class="text-danger fs-5 fa-regular fa-circle-right"></i> Site
+                URL must be a valid one
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
 
-    <!-- Display Table  -->
-
-  <table class="table text-center bg-light ">
-    <thead>
-      <th>Index</th>
-      <th>Website Name</th>
-      <th>Visit</th>
-      <th>Delete</th>
-    </thead>
-    <tbody id="data"></tbody>
-  </table>
-
-  </div>
 
 
-
-  <script src="./js/bootstrap.bundle.min.js"></script> 
-   <script src="./js/mian.js"></script>
-</body>
-
+    <script src="./Js/bootstrap.bundle.min.js"></script>
+    <script src="./Js/main.js"></script>
+  </body>
 </html>

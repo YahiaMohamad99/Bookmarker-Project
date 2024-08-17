@@ -57,7 +57,7 @@ function deletesite(i) {
 
 function visiturl(i) {
   window.open(sites[i].url);
-  console.log(sites[i].url);
+
 }
 
 function clear() {
